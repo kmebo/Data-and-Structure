@@ -1,6 +1,5 @@
 import java.util.Stack;
 public class Assignment4Tester {
-///Users/karlamaradiaga/Downloads/resume_delete/Kevin_Fall2022/Assignment3
     public static void UnblcPrint(Stack<Character> stcValidator)
         throws MyInvalidSintaxException
     {
