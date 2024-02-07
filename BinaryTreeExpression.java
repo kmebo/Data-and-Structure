@@ -28,15 +28,6 @@ public class BinaryTreeExpression{
         int rgt = 0;
         lft = getHeight(r.left);
         rgt = getHeight(r.right);
-        // if(lft < rgt){
-        //     return rgt;
-        // }
-        // else if(lft > rgt){
-        //     return lft;
-        // }
-        // else{
-        //     return lft;//right
-        // }
         if(lft <= rgt){
             return rgt;
         }
@@ -59,34 +50,6 @@ public class BinaryTreeExpression{
         return totalParents(dummy);
     }
     private int totalParents(NodeF1 root){
-        // if(root.left != null && root.right != null){
-        //     return 1 + totalParents(root.left) + totalParents(root.right);
-        // }
-
-        // if(root.left != null || root.right != null){
-        //     return 1 + totalParents(root.left) + totalParents(root.right);
-        // }
-        // if((root.left != null && root.right != null) ||
-        //     (root.left == null || root.right != null) ||
-        //     (root.left != null || root.right == null)){
-        //     return 1 + totalParents(root.left) + totalParents(root.right);
-        // }
-        // else if(root.left != null && root.right == null){
-        //     return 1 + totalParents(root.left) + totalParents(root.right);
-        // }
-        // else if(root.left == null && root.right != null){
-        //     return 1 + totalParents(root.left) + totalParents(root.right);
-        // }
-        // return 0;
-
-        // if(root.left == null && root.right == null) return 0;
-        // else{
-        //     return 1 + totalParents(root.left) + totalParents(root.right);
-        // }
-        // if(root.left == null && root.right == null) {
-        //     return 0;
-        // }
-        // return 1 + totalParents(root.left) + totalParents(root.right);
 
         if(root.left == null && root.right == null) return 0;
         else{

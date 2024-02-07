@@ -77,7 +77,7 @@ public class Assignment4Tester {
         throws MyInvalidSintaxException, MyStackEmptyException
     {
         Stack<NodeF1> stc = new Stack<NodeF1>();
-        String s = args[0];//(A(C(k))(n(24)))
+        String s = args[0];
         root = new NodeF1(nodeNames(args, 1), null, null);
         int x = (bgin(args, 1));
         NodeF1 dummy = root;
@@ -86,25 +86,19 @@ public class Assignment4Tester {
             if(s.charAt(i) == ' '){
                 throw new MyInvalidSintaxException("no spaces ' ' allowed");
             }
-            /* si es '(', then add to left of root */
+            /* if '(', then add to left of root */
             if(s.charAt(i) == '('){
-                // System.out.println("is stc.Peek().left null: "+stc.peek().left);
                 if(stc.peek().left == null){
                     /* first, create that new node */
                         NodeF1 tmp = new NodeF1(nodeNames(args, i+1), null, null);
                     /* then, connect that node to root left */
                         stc.peek().left = tmp;
-                        // System.out.println("before pushing into the stack: "+stc.peek().data);
                         stc.push(tmp);
-                        // System.out.println("after pushing into the stack: "+stc.peek().data);
                 }
                 else{
-                    // System.out.println("is stc.Peek().left null: "+stc.peek().left.data);
                     NodeF1 tmp = new NodeF1(nodeNames(args, i+1), null, null);
                     stc.peek().right = tmp;
-                    // System.out.println("before pushing into the stack: "+stc.peek().data);
                     stc.push(tmp);
-                    // System.out.println("after pushing into the stack: "+stc.peek().data);
                 }
             }
 
@@ -114,13 +108,10 @@ public class Assignment4Tester {
                 if(stc.isEmpty()){
                     throw new MyStackEmptyException("Stack is empty.");
                 }
-                // System.out.println("Before popping the stack: "+stc.peek().data);
                 stc.pop();
-                // System.out.println("After popping the stack: "+stc.peek().data);
             } 
 
         }
-        // System.out.println();//delete
         root = dummy;
         return root;
     }
@@ -133,40 +124,13 @@ public class Assignment4Tester {
         Stack<Character> stcValidator = new Stack<Character>();
         evaluator(args, stcValidator);
         UnblcPrint(stcValidator);
-
-        // makeTree(args, root);//@ some point return this function
-        // return root;
         
         return makeTree(args, root);
     }
     public static void main(String[] args){
-        NodeF1 root;// = new NodeF1();
+        NodeF1 root;
         try {
             root = makeTree(args);
-            // System.out.println(root.data+": "+root);
-            // System.out.println(root.left.data+": "+root.left);
-            // System.out.println(root.left.left.data+": "+root.left.left);
-            // System.out.println(root.left.right.data+": "+root.left.right);
-
-            // "(A(C(k)(2))(n(24)))"
-            // System.out.println("Expected A = "+root.data);
-            // System.out.println("Expected C = "+root.left.data);
-            // System.out.println("Expected k = "+root.left.left.data);
-            // System.out.println("Expected 2 = "+root.left.right.data);
-            // System.out.println("Expected n = "+root.right.data);
-            // System.out.println("Expected 24 = "+root.right.left.data);
-            // // "(A(C(k)(2))(n(24)(38)))"
-            // System.out.println("Expected 38 = "+root.right.right.data);
-
-            // "(A(C(k)(2))(n()(24)))"
-            //trying what happens with (n()(24))
-            // System.out.println("Expected A = "+root.data);
-            // System.out.println("Expected C = "+root.left.data);
-            // System.out.println("Expected k = "+root.left.left.data);
-            // System.out.println("Expected 2 = "+root.left.right.data);
-            // System.out.println("Expected n = "+root.right.data);
-            // System.out.println("Expected - = "+root.right.left.data);
-            // System.out.println("Expected 24 = "+root.right.right.data);
 
             BinaryTreeExpression bte = new BinaryTreeExpression(root);
             System.out.println("1. Heigth of tree = " + bte.getHeight());
